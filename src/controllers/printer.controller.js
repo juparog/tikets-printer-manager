@@ -1,8 +1,9 @@
 const printerService = require("../services/printer.service");
 
-module.exports.openCashDrawer = (req, res) => {
+module.exports.generic = (req, res) => {
+  const { method } = req.params;
   printerService
-    .openCashDrawer(req.body || {})
+    .generic(method, req.body || {})
     .then((response) => {
       res.status(response.statusCode || 200).json(response || {});
     })

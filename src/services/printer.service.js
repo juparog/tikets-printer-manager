@@ -1,7 +1,7 @@
 const ThermalPrinter = require("node-thermal-printer").printer;
 const PrinterTypes = require("node-thermal-printer").types;
 
-module.exports.openCashDrawer = (params) => {
+module.exports.generic = (method, params) => {
   const {
     type,
     interface,
@@ -26,11 +26,19 @@ module.exports.openCashDrawer = (params) => {
       .isPrinterConnected()
       .then((isConnected) => {
         if (isConnected) {
-          printer.openCashDrawer();
-          resolve({
-            statusCode: 200,
-            message: "Orden completada.",
-          });
+          if (printer[method]) {
+            printer[method]();
+            resolve({
+              statusCode: 200,
+              message: "Orden completada.",
+            });
+          } else {
+            printer.beep();
+            resolve({
+              statusCode: 400,
+              message: `Método [${method}] no definido.`,
+            });
+          }
         } else {
           resolve({
             statusCode: 400,
