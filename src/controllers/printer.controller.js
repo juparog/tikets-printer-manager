@@ -1,7 +1,8 @@
-const printerService = require('../services/printer.service');
+const printerService = require("../services/printer.service");
 
 module.exports.openCashDrawer = (req, res) => {
-  printerService.openCashDrawer(req.body || {})
+  printerService
+    .openCashDrawer(req.body || {})
     .then((response) => {
       res.status(response.statusCode || 200).json(response || {});
     })
