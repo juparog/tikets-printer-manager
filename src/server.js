@@ -10,11 +10,11 @@ app.use(cors());
 app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
-  res.send('Tikect Printer Manager')
+  res.send('Tikect Printer Manager');
 });
 
 app.use('/api', indexRouter);
 
 app.listen(port, () => {
-  console.log(`Aplicación escuchando en el puerto ${port}`)
+  console.log(`Aplicación escuchando en el puerto ${port}`);
 });

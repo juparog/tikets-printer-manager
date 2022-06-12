@@ -1,4 +1,4 @@
-const printerService = require("../services/printer.service");
+const printerService = require('../services/printer.service');
 
 module.exports.generic = (req, res) => {
   const { method } = req.params;
