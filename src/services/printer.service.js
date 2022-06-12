@@ -31,7 +31,7 @@ module.exports.generic = (method, params) => {
             printer[method]();
             resolve({
               statusCode: 200,
-              message: 'Orden completada.',
+              message: `Metodo [${method}] completado.`,
             });
           } else {
             printer.beep();

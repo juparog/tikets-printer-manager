@@ -15,3 +15,7 @@ dist
 # Directorios de dependencias
 node_modules/
 jspm_packages/
+
+# Variablesde de entorno
+*.env
+!.sample.env
