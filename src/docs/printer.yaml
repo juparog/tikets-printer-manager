@@ -1,0 +1,593 @@
+tags:
+- name: Printer
+  description: Administración para impresora de tickets.
+paths:
+  /printer/openCashDrawer:
+    post:
+      summary: Abrir el cajón.
+      description: Abrir el cajon del dinero.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/cut:
+    post:
+      summary: Cortar papel.
+      description: Corta el papel (si la impresora solo admite un modo, use este).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/partialCut:
+    post:
+      summary: Cortar papel.
+      description: Corta el papel dejando un pequeño puente en el medio (si la impresora admite múltiples modos de corte).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/beep:
+    post:
+      summary: Sonar.
+      description: Hacer sonar el zumbador interno (si está disponible).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/drawLine:
+    post:
+      summary: Dibujar linea.
+      description: Dibujar una linea en el papel.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/newLine:
+    post:
+      summary: Dibujar linea de ruptura.
+      description: Dibujar una linea de ruptura.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/alignCenter:
+    post:
+      summary: Alinear el centro.
+      description: Alinear el contenido al centro del papel.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/alignLeft:
+    post:
+      summary: Alinear a la izquierda.
+      description: Alinear el contenido a la izquierda del papel.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/alignRight:
+    post:
+      summary: Alinear a la derecha.
+      description: Alinear el contenido a la derecha del papel.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTypeFontA:
+    post:
+      summary: Estabecer fuente A.
+      description: Establecer el tipo de fuente en A (predeterminado).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTypeFontB:
+    post:
+      summary: Estabecer fuente B.
+      description: Establecer el tipo de fuente en B.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTextNormal:
+    post:
+      summary: Texto normal.
+      description: Establecer el texto en normal.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTextDoubleHeight:
+    post:
+      summary: Texto doble altura.
+      description: Establecer el texto en doble altura.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTextDoubleWidth:
+    post:
+      summary: Texto doble ancho.
+      description: Establecer el texto en doble ancho.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setTextQuadArea:
+    post:
+      summary: Texto cuadruple.
+      description: Establecer el texto en cuadruple.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/clear:
+    post:
+      summary: Borrar texto.
+      description: Borra el valor de printText.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/getText:
+    post:
+      summary: Obtener texto.
+      description: Devuelve el valor de la cadena del búfer de la impresora.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/getBuffer:
+    post:
+      summary: Obtener buffer.
+      description: Devuelve el búfer de la impresora.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/getWidth:
+    post:
+      summary: Obtener numero de caracteres.
+      description: Obtener el número de caracteres en una línea.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'

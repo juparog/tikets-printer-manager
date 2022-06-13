@@ -30,18 +30,21 @@ module.exports.generic = (method, params) => {
           if (printer[method]) {
             printer[method]();
             resolve({
+              success: true,
               statusCode: 200,
               message: `Metodo [${method}] completado.`,
             });
           } else {
             printer.beep();
             resolve({
+              success: false,
               statusCode: 400,
               message: `Método [${method}] no definido.`,
             });
           }
         } else {
           resolve({
+            success: false,
             statusCode: 400,
             message: 'Impresora desconectada.',
           });
@@ -49,6 +52,7 @@ module.exports.generic = (method, params) => {
       })
       .catch((error) => {
         reject({
+          success: false,
           statusCode: 500,
           message: 'Error conectando con la impresora.',
           data: {

@@ -1,0 +1,94 @@
+definitions:
+# ******* Modelos ********
+  PrinterParams:
+    type: object
+    required:
+      - type,
+      - connection,
+      - characterSet
+    properties:
+      type:
+        type: string
+        description: "Tipo de impresora: 'STAR' or 'EPSON'."
+        example: STAR
+      connection:
+        type: string
+        description: |
+          "Interfaz de conexion para la impresora:
+          tcp://xxx.xxx.xxx.xxx - Impresora de red con puerto
+          printer:auto - Selección automática de la impresora del sistema
+          printer:My Printer Name - Seleccione la impresora del sistema por nombre
+          .\COM1 - Imprimir a través del puerto o archivo local"
+        example: "tcp://192.168.0.99:9100"
+      characterSet:
+        type: string
+        description: "Conjunto de caracteres de la impresora - predeterminado: ESLOVENIA."
+        example: PC852_LATIN2
+      removeSpecialCharacters:
+        type: bool
+        description: "Elimina caracteres especiales - predeterminado: falso."
+        example: falso
+      lineCharacter:
+        type: string
+        description: "Set character for lines - default: '-'."
+        example: "="
+      timeout:
+        type: string
+        description: "Tiempo de espera de conexión (ms) [aplicable solo para impresoras de red] - predeterminado: 3000."
+        example: 3000
+  ResponseSuccess:
+    type: object
+    required:
+      - success
+      - statusCode
+      - message
+    properties:
+      success:
+        type: bool
+        description: Estado de la respuesta.
+        example: true
+      message:
+        type: string
+        description: Informacion de la respuesta.
+        example: Metodo nombreDelMetodo completado.
+  ResponseFail:
+    type: object
+    required:
+      - success
+      - statusCode
+      - message
+    properties:
+      success:
+        type: bool
+        description: Estado de la respuesta.
+        example: false
+      message:
+        type: string
+        description: Informacion del error ocurrido.
+        example: Impresora desconectada.
+      data:
+        type: object
+        properties:
+          error:
+            type: string
+            description: Detalle del error ocurrido.
+            example: Error conectando con la impresora
+  CommonPrinterResponse:
+    200:
+      description: Informacion acerca de la ejecucion del metodo en la impresora.
+      content:
+        application/json:
+          schema:
+            $ref: '#/definitions/ResponseSuccess'
+    400:
+      description: Informacion acerca de la ejecucion del metodo en la impresora.
+      content:
+        application/json:
+          schema:
+            $ref: '#/definitions/ResponseFail'
+    500:
+      description: Informacion acerca de la ejecucion del metodo en la impresora.
+      content:
+        application/json:
+          schema:
+            $ref: '#/definitions/ResponseFail'
