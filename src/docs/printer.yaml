@@ -11,9 +11,370 @@ paths:
       parameters:
         - in: body
           name: parametros
+          required: true
           description: Parametros para conectar con la imresora.
           schema:
             $ref: '#/definitions/PrinterParams'
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/print:
+    post:
+      summary: Agregar texto.
+      description: Agregar texto.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: str
+          required: true
+          description: "Argumento tipo texto par el metodo"
+          example: "Hola mundo!"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/println:
+    post:
+      summary: Agregar texto.
+      description: Agregar texto con nueva línea.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: str
+          required: true
+          description: "Argumento tipo texto par el metodo"
+          example: "Hola mundo!"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/setCharacterSet:
+    post:
+      summary: Establecer conjunto de caracteres.
+      description: Establecer conjunto de caracteres - conjunto predeterminado en init.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: str
+          required: true
+          description: "Argumento tipo texto par el metodo"
+          example: "Hola mundo!"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/code128:
+    post:
+      summary: Código de barras.
+      description: Imprime el código de barras code128.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: str
+          required: true
+          description: "Argumento tipo texto par el metodo"
+          example: "Hola mundo!"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/printQR:
+    post:
+      summary: Código QR.
+      description: Imprimir código QR.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: str
+          required: true
+          description: "Argumento tipo texto par el metodo"
+          example: "Hola mundo!"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/upsideDown:
+    post:
+      summary: Girar contenido.
+      description: El contenido se imprime al revés (girado 180 grados).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: bool
+          required: true
+          description: "Argumento tipo booleano par el metodo"
+          example: "true"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/bold:
+    post:
+      summary: Negrita.
+      description: Poner texto en negrita.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: bool
+          required: true
+          description: "Argumento tipo booleano par el metodo"
+          example: "true"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/invert:
+    post:
+      summary: Invertir fondo.
+      description: Inversión de color de fondo/texto.
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: bool
+          required: true
+          description: "Argumento tipo booleano par el metodo"
+          example: "true"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/underline:
+    post:
+      summary: Subrayar texto.
+      description: Subrayar texto (grosor de 1 punto).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: bool
+          required: true
+          description: "Argumento tipo booleano par el metodo"
+          example: "true"
+      responses:
+        200:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseSuccess'
+        400:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+        500:
+          description: Informacion acerca de la ejecucion del metodo en la impresora.
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ResponseFail'
+  /printer/underlineThick:
+    post:
+      summary: Subrayar texto.
+      description: Subrayar texto con línea gruesa (2 puntos de grosor).
+      tags:
+        - Printer
+      parameters:
+        - in: body
+          name: parametros
+          description: Parametros para conectar con la imresora.
+          schema:
+            $ref: '#/definitions/PrinterParams'
+        - in: query
+          name: bool
+          required: true
+          description: "Argumento tipo booleano par el metodo"
+          example: "true"
       responses:
         200:
           description: Informacion acerca de la ejecucion del metodo en la impresora.
