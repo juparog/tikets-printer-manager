@@ -1,7 +1,37 @@
 const ThermalPrinter = require('node-thermal-printer').printer;
 const PrinterTypes = require('node-thermal-printer').types;
 
-module.exports.generic = (method, params) => {
+const selectMethod = async (printer, method, args) => {
+  const { str, bool, table } = args;
+  switch (method) {
+    case 'print':
+    case 'println':
+    case 'setCharacterSet':
+    case 'code128':
+    case 'printQR':
+      printer[method](str.toString().replaceAll('"', ''));
+      break;
+    case 'printImage':
+      await printer[method](str);
+      break;
+    case 'upsideDown':
+    case 'bold':
+    case 'invert':
+    case 'underline':
+    case 'underlineThick':
+      printer[method](Boolean(bool));
+      break;
+    case 'table':
+    case 'tableCustom':
+      printer[method](JSON.parse(table));
+      break;
+    default:
+      printer[method]();
+      break;
+  }
+};
+
+module.exports.generic = (method, params, args) => {
   const {
     type,
     connection,
@@ -26,9 +56,9 @@ module.exports.generic = (method, params) => {
     printer
       .isPrinterConnected()
       .then((isConnected) => {
-        if (isConnected) {
+        if (true) {
           if (printer[method]) {
-            printer[method]();
+            selectMethod(printer, method, args);
             resolve({
               success: true,
               statusCode: 200,

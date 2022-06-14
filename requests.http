@@ -1,0 +1,38 @@
+## Abrir el cajon
+POST http://localhost:3000/api/printer/openCashDrawer HTTP/1.1
+Content-Type: application/json
+
+{
+  "type": "START",
+  "connection": "tcp:auto",
+  "characterSet": "PC852_LATIN2",
+  "removeSpecialCharacters": "false",
+  "lineCharacter": "=",
+  "timeout": "1000"
+}
+
+## Establecer texto en negrita
+POST http://localhost:3000/api/printer/bold?bool=true HTTP/1.1
+Content-Type: application/json
+
+{
+  "type": "START",
+  "connection": "tcp:auto",
+  "characterSet": "PC852_LATIN2",
+  "removeSpecialCharacters": "false",
+  "lineCharacter": "=",
+  "timeout": "1000"
+}
+
+## Abrir el cajon
+POST http://localhost:3000/api/printer/println?str="Hola Mundo!" HTTP/1.1
+Content-Type: application/json
+
+{
+  "type": "START",
+  "connection": "tcp:auto",
+  "characterSet": "PC852_LATIN2",
+  "removeSpecialCharacters": "false",
+  "lineCharacter": "=",
+  "timeout": "1000"
+}

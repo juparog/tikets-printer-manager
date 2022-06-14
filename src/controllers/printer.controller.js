@@ -3,7 +3,7 @@ const printerService = require('../services/printer.service');
 module.exports.generic = (req, res) => {
   const { method } = req.params;
   printerService
-    .generic(method, req.body || {})
+    .generic(method, req.body || {}, req.query || {})
     .then((response) => {
       res.status(response.statusCode || 200).json(response || {});
     })
